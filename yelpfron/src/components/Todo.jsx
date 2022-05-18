@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 
 function Todo() {
 const[data,setdata]=useState([]);
@@ -66,7 +67,10 @@ setid(id)
 
 }
 
-
+// const goto=()=>{
+  const navigate=useNavigate();
+  // navigate("/rew")
+// }
 
   return (
     <div>
@@ -80,16 +84,7 @@ setid(id)
         <button>ADD</button>
         {/* <button onClick={()=>updatedata(id)}>UPDATE</button> */}
       </form>
-      <form type="submit" >
-        <label>Restaurant</label>
-        <input type="text" value={cname} onChange={(e)=>setname(e.target.value)} />
-        <label>location</label>
-        <input type="text" value={cloc} onChange={(e)=>setloc(e.target.value)} />
-        <label>Price</label>
-        <input type="text"value={price} onChange={(e)=>setprice(e.target.value)}   />
-        <button>ADD</button>
-        <button onClick={()=>updatedata(id)}>UPDATE</button>
-      </form>
+      
       <table class="table table-dark">
   <thead>
     <tr>
@@ -101,7 +96,8 @@ setid(id)
   </thead>
   {data.map(d=>(
     <tbody>
-    <tr>
+    {/* <Link to="/rew"> */}
+    <tr onClick={()=>navigate(`/rew/${d.c_id}`)} >
       <th scope="row">{d.c_id}</th>
       <td>{d.cname}</td>
       <td>{d.cloc}</td>
@@ -109,6 +105,7 @@ setid(id)
       <td><button onClick={()=>setter(d.cname,d.cloc,d.price,d.c_id)}>EDIT</button></td>
       <td><button onClick={()=>deletedata(d.c_id)}>DELETE</button></td>
     </tr>
+    {/* </Link> */}
   </tbody>
   ))}
   

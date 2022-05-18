@@ -23,6 +23,35 @@ app.post('/crud', async (req,res)=>{
 
 
 })
+
+app.post('/rew/:id', async (req,res)=>{
+  try{
+    const {id}=req.params;
+  const {comm,name,rating}=req.body
+  const newc=await pool.query('INSERT INTO rew (comment,name,rating,restaurants) VALUES ($1,$2,$3,$4)',[comm,name,rating,id])
+res.json(newc.rows)
+
+}catch(e){
+      console.log(e);
+  }
+
+
+})
+
+app.get('/rew/:id', async (req,res)=>{
+  try{
+    const {id}=req.params;
+  // const {comm,name,rating}=req.body
+  const newc=await pool.query('SELECT * FROM rew WHERE restaurants=$1',[id])
+res.json(newc.rows)
+
+}catch(e){
+      console.log(e);
+  }
+
+
+})
+
 app.get('/crud', async (req,res)=>{
     try{
 
