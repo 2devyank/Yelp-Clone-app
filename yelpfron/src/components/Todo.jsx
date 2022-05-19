@@ -102,7 +102,7 @@ setid(id)
       <td onClick={()=>navigate(`/rew/${d.c_id}/${d.cname}`)}>{d.cname}</td>
       <td>{d.cloc}</td>
       <td>{d.price}</td>
-      <td><button onClick={()=>setter(d.cname,d.cloc,d.price,d.c_id)}>EDIT</button></td>
+      <td><button onClick={()=>navigate(`/update/${d.cname}/${d.cloc}/${d.price}/${d.c_id}`)}>EDIT</button></td>
       <td><button onClick={()=>deletedata(d.c_id)}>DELETE</button></td>
     </tr>
     {/* </Link> */}
