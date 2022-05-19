@@ -42,12 +42,13 @@ function Update() {
         <form onSubmit={updatedata}>
 
         <label>Name</label>
-        <input type="text" value={cname} onChange={(e)=>setname(e.target.value)}/>
+        <input type="text" className='form-control' value={cname} onChange={(e)=>setname(e.target.value)}/>
         <label>Location</label>
-        <input type="text" value={cloc} onChange={(e)=>setloc(e.target.value)}/>
+        <input type="text" value={cloc}  className='form-control' onChange={(e)=>setloc(e.target.value)}/>
         <label>Price</label>
-        <input type="text" value={price} onChange={(e)=>setprice(e.target.value)}/>
-        <button>UPDATE</button>
+        <input type="text" value={price}  className='form-control' onChange={(e)=>setprice(e.target.value)}/>
+       <br />
+        <button className='btn btn-primary'>UPDATE</button>
         </form>
     </div>
   )

@@ -32,30 +32,36 @@ const [data,setdata]=useState([])
     getdata();
   }, [])
   return (
-    <div>
+    <div className='container'>
         <h1>
        {na}
 
         </h1>
+        <div className='type'>
+
         {data.map(d=>
- <div class="card text-white bg-primary mb-3" styles="max-width: 18rem;">
+ <div class="card text-white bg-primary mb-3 own" styles={{maxWidth:"18rem"}}>
  <div class="card-header">{d.name}</div>
  <div class="card-body">
    {/* <h5 class="card-title">Primary card title</h5> */}
    <p class="card-text">{d.comment}</p>
-   <p class="card-text">{d.rating}</p>
+   <hr />
+   <p class="card-text">Rating : {d.rating}</p>
  </div>
        </div>
           )}
+          </div>
        
         <form onSubmit={postid}>
             <label >Name</label>
-            <input type="text" value={name} onChange={(e)=>setname(e.target.value)} />
+          
+            <input type="text" class="form-control" value={name} onChange={(e)=>setname(e.target.value)} />
             <label>Comment</label>
-            <input type="text" value={comm} onChange={(e)=>setcomm(e.target.value)}/>
+            <input type="text" value={comm} class="form-control" onChange={(e)=>setcomm(e.target.value)}/>
             <label >Rating</label>
-            <input type="number" value={rating} onChange={(e)=>setrating(e.target.value)} />
-            <button>Submit</button>
+            <input type="number" value={rating} class="form-control" onChange={(e)=>setrating(e.target.value)} />
+           <br />
+            <button class="btn btn-primary">Submit</button>
             
                    </form>
         </div>

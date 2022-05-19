@@ -10,7 +10,7 @@ function App() {
 
   return (
    <BrowserRouter>
-   <div>
+   <div className="container our">
 
    <Routes>
     <Route path="/rew/:id/:na" element={<Reiew/>} exact/>
