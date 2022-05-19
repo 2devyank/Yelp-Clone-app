@@ -97,9 +97,9 @@ setid(id)
   {data.map(d=>(
     <tbody>
     {/* <Link to="/rew"> */}
-    <tr onClick={()=>navigate(`/rew/${d.c_id}`)} >
+    <tr  >
       <th scope="row">{d.c_id}</th>
-      <td>{d.cname}</td>
+      <td onClick={()=>navigate(`/rew/${d.c_id}/${d.cname}`)}>{d.cname}</td>
       <td>{d.cloc}</td>
       <td>{d.price}</td>
       <td><button onClick={()=>setter(d.cname,d.cloc,d.price,d.c_id)}>EDIT</button></td>

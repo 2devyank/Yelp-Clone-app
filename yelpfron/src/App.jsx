@@ -12,7 +12,7 @@ function App() {
    <div>
 
    <Routes>
-    <Route path="/rew/:id" element={<Reiew/>} exact/>
+    <Route path="/rew/:id/:na" element={<Reiew/>} exact/>
     <Route path="/" element={<Todo/>} exact/>
    </Routes>
    </div>

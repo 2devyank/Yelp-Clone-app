@@ -2,12 +2,30 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 function Reiew() {
-  const {id}=useParams();
+  const [name,setname]=useState("")
+  const [comm,setcomm]=useState("")
+  const [rating,setrating]=useState("")
+  const {id,na}=useParams();
 const [data,setdata]=useState([])
   async function getdata(){
     const result = await fetch(`http://localhost:8080/rew/${id}`)
     const data =await result.json()
     setdata(data);
+  }
+  async function postid(e){
+    e.preventDefault();
+    try{
+    const body= {comm,name,rating};
+    const result=await fetch(`http://localhost:8080/rew/${id}`,{
+      method:"POST",
+      headers:{"Content-type":"application/json"},
+      body:JSON.stringify(body)
+
+    })
+  }catch(e){
+    console.log(e)
+  }
+    
   }
   console.log(data)
   useEffect(() => {
@@ -16,7 +34,7 @@ const [data,setdata]=useState([])
   return (
     <div>
         <h1>
-        Review
+       {na}
 
         </h1>
         {data.map(d=>
@@ -30,14 +48,14 @@ const [data,setdata]=useState([])
        </div>
           )}
        
-        <form action="">
+        <form onSubmit={postid}>
             <label >Name</label>
-            <input type="text" />
+            <input type="text" value={name} onChange={(e)=>setname(e.target.value)} />
             <label>Comment</label>
-            <input type="text" />
+            <input type="text" value={comm} onChange={(e)=>setcomm(e.target.value)}/>
             <label >Rating</label>
-            <input type="number" />
-            
+            <input type="number" value={rating} onChange={(e)=>setrating(e.target.value)} />
+            <button>Submit</button>
             
                    </form>
         </div>

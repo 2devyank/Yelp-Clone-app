@@ -32,7 +32,7 @@ app.post('/rew/:id', async (req,res)=>{
 res.json(newc.rows)
 
 }catch(e){
-      console.log(e);
+      console.log("errror" + e);
   }
 
 
