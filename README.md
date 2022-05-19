@@ -14,3 +14,6 @@ By clicking on restaurnats name you can go to review page where you can add your
 You can also Update anything about restaurnat later on if you feel to !
 ![image](https://user-images.githubusercontent.com/78840243/169382732-4d444e64-3f14-4049-83da-62daf2d5f606.png)
 
+## Thank you !
+## ⭐ Star this Project !
+## Feel free to contribute to this project !
